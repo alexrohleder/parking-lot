@@ -8,3 +8,7 @@ export async function getTodayEarnings() {
     delta: 18
   };
 }
+
+export async function getTotalAvailability() {
+  return 17;
+}

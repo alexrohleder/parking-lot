@@ -3,8 +3,7 @@ import Delta from "./Delta";
 
 type Props = {
   title: string;
-  description: string;
-  value: number | string;
+  value: string;
   delta?: number;
   deltaTitleAppendix?: string;
 };
@@ -12,14 +11,13 @@ type Props = {
 function Card(props: Props) {
   return (
     <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-lg">
-      <div className="flex items-center justify-between">
-        <div className="text-3xl font-bold">{props.value}</div>
+      <div className="flex items-center justify-between mb-2">
+        <div className="text-lg">{props.title}</div>
         {props.delta && (
           <Delta delta={props.delta} titleAppendix={props.deltaTitleAppendix} />
         )}
       </div>
-      <div className="text-lg mt-2">{props.title}</div>
-      <div className="text-gray-600">{props.description}</div>
+      <div className="text-3xl font-bold">{props.value}</div>
     </div>
   );
 }

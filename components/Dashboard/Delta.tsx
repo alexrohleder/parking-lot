@@ -19,7 +19,7 @@ function Delta(props: Props) {
       : `Decrease ${props.titleAppendix}`;
 
   return (
-    <div className={`${colors} p-1 text-sm rounded`} title={title}>
+    <div className={`${colors} py-1 px-2 text-sm rounded-lg`} title={title}>
       {props.delta > 0 ? "+" : "-"}
       {props.delta}%
     </div>

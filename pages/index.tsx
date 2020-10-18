@@ -13,9 +13,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     props: {
       earnings: await getTodayEarnings(),
       totalAvailability: await getTotalAvailability()
-    },
-
-    revalidate: 3600 // re-compute every 1hr
+    }
   };
 };
 

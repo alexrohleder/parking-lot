@@ -62,7 +62,7 @@
     }
 
     tfoot tr {
-      @apply border-t;
+      @apply border-t border-b-0;
     }
   }
 }

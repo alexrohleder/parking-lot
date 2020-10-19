@@ -21,7 +21,7 @@ const percent = (n1: number, n2: number) => (n1 * 100) / n2 + "%";
 
 export default function Dashboard({ earnings, availability }: Props) {
   return (
-    <Layout>
+    <Layout title="Parking Dashboard">
       <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pb-4">
         <Card title="Total Earnings">
           <div className="text-3xl font-bold">{earnings.amount},- NOK</div>

@@ -9,6 +9,7 @@ function LayoutHeader() {
           <Link href="/">
             <a>
               <div className="placeholder h-6 w-24" />
+              <div className="sr-only">parking dashboard</div>
             </a>
           </Link>
           <div className="flex gap-2 items-center">

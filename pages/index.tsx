@@ -1,38 +1,32 @@
 import { GetStaticProps } from "next";
-import Card from "../components/Dashboard/Card";
+import Card from "../components/Card";
 import Layout from "../components/Layout";
-import { getTodayEarnings, getTotalAvailability } from "../services/Garage";
+import { getTodayEarnings, getAvailability } from "../services/Garage";
 
 type Props = {
   earnings: AsyncReturnType<typeof getTodayEarnings>;
-  totalAvailability: AsyncReturnType<typeof getTotalAvailability>;
+  availability: AsyncReturnType<typeof getAvailability>;
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       earnings: await getTodayEarnings(),
-      totalAvailability: await getTotalAvailability()
-    }
+      availability: await getAvailability(),
+    },
   };
 };
 
 export default function Dashboard(props: Props) {
   return (
     <Layout>
-      <div className="grid gap-4 pb-4 md:grid-cols-2 lg:grid-cols-3">
-        <Card
-          title="Total Earnings"
-          value={`${props.earnings.amount},- NOK`}
-          delta={props.earnings.delta}
-          deltaTitleAppendix="from yesterday"
-        />
+      <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pb-4">
+        <Card title="Total Earnings" value={`${props.earnings.amount},- NOK`} />
         <Card
           title="Total Availability"
-          value={`${props.totalAvailability} spots`}
-          delta={-2}
-          deltaTitleAppendix="from same time yesterday"
+          value={`${props.availability.totalAvailableSpots} spots`}
         />
+        <div className="hidden sm:block placeholder" />
         <div className="hidden lg:block placeholder" />
       </div>
       <div className="grid gap-4 md:grid-cols-2">

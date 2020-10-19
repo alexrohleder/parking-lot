@@ -1,14 +1,15 @@
-/**
- * Retrieve the current amount earned today and a delta in the form of a
- * percentage which represents the difference between today and yesterday
- */
+import { getAvailability as getFloorAvailability } from "./Floor";
+
 export async function getTodayEarnings() {
   return {
     amount: 7580,
-    delta: 18
   };
 }
 
-export async function getTotalAvailability() {
-  return 17;
+export async function getAvailability() {
+  return {
+    totalSpots: 50,
+    totalAvailableSpots: 29,
+    floors: await getFloorAvailability(),
+  };
 }

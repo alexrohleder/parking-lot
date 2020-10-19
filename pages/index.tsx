@@ -35,44 +35,51 @@ export default function Dashboard({ earnings, availability }: Props) {
         <div className="hidden lg:block placeholder" />
       </div>
       <div className="grid gap-4 lg:grid-cols-2">
-        <div className="hidden lg:block placeholder" />
-        <Card title="Spots Overview">
-          <table>
-            <thead>
-              <tr>
-                <th>Floor</th>
-                <th>Total Spots</th>
-                <th>Available Spots</th>
-                <th>Available %</th>
-              </tr>
-            </thead>
-            <tbody>
-              {availability.floors.map((floor) => (
-                <tr key={floor.level}>
-                  <td>Level {floor.level}</td>
-                  <td>{floor.totalSpots}</td>
-                  <td>{floor.totalAvailableSpots}</td>
+        <div className="hidden lg:flex flex-col gap-4">
+          <div className="placeholder h-48" />
+          <div className="placeholder h-24" />
+          <div className="placeholder h-64" />
+        </div>
+        <div className="flex flex-col gap-4">
+          <Card title="Spots Overview">
+            <table>
+              <thead>
+                <tr>
+                  <th>Floor</th>
+                  <th>Total Spots</th>
+                  <th>Available Spots</th>
+                  <th>Available %</th>
+                </tr>
+              </thead>
+              <tbody>
+                {availability.floors.map((floor) => (
+                  <tr key={floor.level}>
+                    <td>Level {floor.level}</td>
+                    <td>{floor.totalSpots}</td>
+                    <td>{floor.totalAvailableSpots}</td>
+                    <td>
+                      {percent(floor.totalAvailableSpots, floor.totalSpots)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td className="font-bold">Total:</td>
+                  <td>{availability.totalSpots}</td>
+                  <td>{availability.totalAvailableSpots}</td>
                   <td>
-                    {percent(floor.totalAvailableSpots, floor.totalSpots)}
+                    {percent(
+                      availability.totalAvailableSpots,
+                      availability.totalSpots
+                    )}
                   </td>
                 </tr>
-              ))}
-            </tbody>
-            <tfoot>
-              <tr>
-                <td className="font-bold">Total:</td>
-                <td>{availability.totalSpots}</td>
-                <td>{availability.totalAvailableSpots}</td>
-                <td>
-                  {percent(
-                    availability.totalAvailableSpots,
-                    availability.totalSpots
-                  )}
-                </td>
-              </tr>
-            </tfoot>
-          </table>
-        </Card>
+              </tfoot>
+            </table>
+          </Card>
+          <div className="hidden lg:block placeholder h-48" />
+        </div>
       </div>
     </Layout>
   );

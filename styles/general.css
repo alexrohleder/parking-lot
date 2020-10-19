@@ -32,3 +32,37 @@
     @apply bg-gray-300 rounded-md;
   }
 }
+
+@layer base {
+  table {
+    @apply w-full;
+
+    thead {
+      @apply border-b border-gray-400;
+
+      th {
+        @apply text-left p-2;
+      }
+    }
+
+    tr {
+      @apply border-b border-gray-400 transition-colors ease-in-out duration-150;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      td {
+        @apply p-2;
+      }
+    }
+
+    tbody tr:hover {
+      @apply bg-gray-200;
+    }
+
+    tfoot tr {
+      @apply border-t;
+    }
+  }
+}

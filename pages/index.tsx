@@ -37,7 +37,18 @@ export default function Dashboard({ earnings, availability }: Props) {
       <div className="grid gap-4 lg:grid-cols-2">
         <div className="hidden lg:flex flex-col gap-4">
           <div className="placeholder h-48" />
-          <div className="placeholder h-24" />
+          <div className="flex gap-4">
+            <div className="w-full">
+              <Card title="Class Diagram">
+                Follow{" "}
+                <a href="/class-diagram.svg" target="_blank">
+                  this link
+                </a>{" "}
+                to see.
+              </Card>
+            </div>
+            <div className="placeholder w-full" />
+          </div>
           <div className="placeholder h-64" />
         </div>
         <div className="flex flex-col gap-4">

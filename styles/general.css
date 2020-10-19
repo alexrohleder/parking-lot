@@ -34,6 +34,10 @@
 }
 
 @layer base {
+  a {
+    @apply underline text-teal-600;
+  }
+
   table {
     @apply w-full;
 

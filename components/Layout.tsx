@@ -15,6 +15,16 @@ function Layout(props: Props) {
       </Head>
       <LayoutHeader />
       <main className="lg:container m-auto p-4">{props.children}</main>
+      <footer className="text-center p-8">
+        Made with ❤️ by{" "}
+        <a
+          href="https://www.linkedin.com/in/alexrohleder/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Alex Rohleder
+        </a>
+      </footer>
     </div>
   );
 }

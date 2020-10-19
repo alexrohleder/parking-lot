@@ -23,18 +23,20 @@ export default function Dashboard({ earnings, availability }: Props) {
   return (
     <Layout>
       <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pb-4">
-        <Card title="Total Earnings" value={`${earnings.amount},- NOK`} />
-        <Card
-          title="Total Availability"
-          value={`${availability.totalAvailableSpots} spots`}
-        />
+        <Card title="Total Earnings">
+          <div className="text-3xl font-bold">{earnings.amount},- NOK</div>
+        </Card>
+        <Card title="Total Availability">
+          <div className="text-3xl font-bold">
+            {availability.totalAvailableSpots} spots
+          </div>
+        </Card>
         <div className="hidden sm:block placeholder" />
         <div className="hidden lg:block placeholder" />
       </div>
-      <div className="grid gap-4 md:grid-cols-2">
-        <div className="hidden sm:block placeholder" />
-        <div className="border border-gray-400 rounded-md p-4">
-          <div className="text-lg mb-4 px-2">Spots Overview</div>
+      <div className="grid gap-4 lg:grid-cols-2">
+        <div className="hidden lg:block placeholder" />
+        <Card title="Spots Overview">
           <table>
             <thead>
               <tr>
@@ -70,7 +72,7 @@ export default function Dashboard({ earnings, availability }: Props) {
               </tr>
             </tfoot>
           </table>
-        </div>
+        </Card>
       </div>
     </Layout>
   );

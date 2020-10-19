@@ -1,8 +1,8 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 type Props = {
   title: string;
-  value: string;
+  children: ReactNode;
 };
 
 function Card(props: Props) {
@@ -11,7 +11,7 @@ function Card(props: Props) {
       <div className="flex items-center justify-between mb-2">
         <div className="text-lg">{props.title}</div>
       </div>
-      <div className="text-3xl font-bold">{props.value}</div>
+      {props.children}
     </div>
   );
 }

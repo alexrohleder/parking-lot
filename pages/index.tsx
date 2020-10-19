@@ -30,7 +30,14 @@ export default function Dashboard(props: Props) {
         <Card
           title="Total Availability"
           value={`${props.totalAvailability} spots`}
+          delta={-2}
+          deltaTitleAppendix="from same time yesterday"
         />
+        <div className="hidden lg:block placeholder" />
+      </div>
+      <div className="grid gap-4 md:grid-cols-2">
+        <div className="hidden sm:block h-64 placeholder" />
+        <div className="hidden sm:block h-64 placeholder" />
       </div>
     </Layout>
   );

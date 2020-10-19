@@ -20,7 +20,7 @@ function Delta(props: Props) {
 
   return (
     <div className={`${colors} py-1 px-2 text-sm rounded-lg`} title={title}>
-      {props.delta > 0 ? "+" : "-"}
+      {props.delta > 0 ? "+" : ""}
       {props.delta}%
     </div>
   );

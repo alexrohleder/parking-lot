@@ -7,9 +7,13 @@ export async function getTodayEarnings() {
 }
 
 export async function getAvailability() {
+  const floors = await getFloorAvailability();
   return {
-    totalSpots: 50,
-    totalAvailableSpots: 29,
-    floors: await getFloorAvailability(),
+    totalSpots: floors.reduce((sum, floor) => (sum += floor.totalSpots), 0),
+    totalAvailableSpots: floors.reduce(
+      (sum, floor) => (sum += floor.totalAvailableSpots),
+      0
+    ),
+    floors,
   };
 }
